@@ -4,24 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>Mie Ayam Viral | Mie Kekinian Rasa Nampol</title>
+  <!-- Tailwind CSS + Font Awesome + Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom config untuk warna & ekstensi -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'primary': '#0D9488',
-            'secondary': '#14B8A6',
-            'accent': '#F97316',
-            'soft-bg': '#F0FDFA',
+            'primary': '#0D9488',   // teal-600
+            'secondary': '#14B8A6', // teal-500
+            'accent': '#F97316',    // oranye untuk aksen
+            'soft-bg': '#F0FDFA',   // sangat soft teal
           },
           animation: {
             'fade-in': 'fadeIn 0.6s ease-out',
             'fade-up': 'fadeUp 0.5s ease-out',
+            'hover-scale': 'scale 0.2s ease',
           },
           keyframes: {
-            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-            fadeUp: { '0%': { opacity: '0', transform: 'translateY(15px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(15px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
           }
         }
       }
@@ -29,39 +38,42 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    body { scroll-behavior: smooth; }
-    .hover-glow:hover { transform: translateY(-6px); box-shadow: 0 20px 28px -12px rgba(0,0,0,0.2); transition: all 0.25s ease; }
-    .card-transition { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .menu-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    /* custom smooth scroll & hover tambahan */
+    body {
+      scroll-behavior: smooth;
     }
-    .small-img {
-      width: 48px;
-      height: 48px;
-      object-fit: cover;
-      border-radius: 12px;
+    .hover-glow:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
     }
-    .drink-img {
-      width: 44px;
-      height: 44px;
-      object-fit: cover;
-      border-radius: 50%;
+    .card-transition {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-pulse:active {
+      transform: scale(0.96);
+    }
+    /* untuk efek infinite sederhana */
+    @keyframes softBounce {
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-3px); }
+    }
+    .animate-soft-bounce {
+      animation: softBounce 1.5s infinite ease;
     }
   </style>
 </head>
 <body class="bg-gradient-to-br from-soft-bg via-white to-green-50 font-sans antialiased">
 
-  <!-- Floating WA Button -->
+  <!-- Floating WA Button (sticky) -->
   <a href="https://wa.me/62887814530831?text=Halo%20Mie%20Ayam%20Viral!%20Saya%20mau%20order%20🤤" 
      target="_blank" 
-     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center gap-2">
+     class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center gap-2 group">
     <i class="fab fa-whatsapp text-2xl"></i>
     <span class="hidden md:inline-block font-semibold text-sm">Pesan Sekarang</span>
   </a>
 
-  <!-- Header -->
+  <!-- Header / Navbar -->
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-teal-100">
     <div class="container mx-auto px-5 py-3 flex justify-between items-center flex-wrap">
       <div class="flex items-center gap-2">
@@ -85,14 +97,14 @@
 
   <main class="container mx-auto px-4 md:px-6 py-6 md:py-10 max-w-6xl">
 
-    <!-- Hero Section -->
+    <!-- Hero Section dengan Animasi fade-in -->
     <section class="grid md:grid-cols-2 gap-8 items-center mb-16 animate-fade-in">
       <div class="space-y-5">
         <div class="inline-block bg-orange-100 text-orange-700 rounded-full px-3 py-1 text-xs font-bold"><i class="fas fa-fire"></i> Viral Banget! 🔥</div>
         <h2 class="text-4xl md:text-5xl font-black leading-tight text-gray-800">Mie Kenyal,<br>Rasa <span class="text-primary">Nampol Abis!</span></h2>
         <p class="text-gray-600 text-lg">Mie Ayam Viral hadir dengan cita rasa khas yang bikin semua orang balik lagi! Ayam berbumbu gurih manis meresap sempurna, topping melimpah, dan kuah kaldu spesial.</p>
         <div class="flex flex-wrap gap-3 pt-2">
-          <a href="#menu" class="bg-primary hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2"><i class="fas fa-arrow-right"></i> Lihat Menu Andalan</a>
+          <a href="#menu" class="bg-primary hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 flex items-center gap-2 btn-pulse"><i class="fas fa-arrow-right"></i> Lihat Menu Andalan</a>
           <a href="https://wa.me/62887814530831?text=Halo%20Mie%20Ayam%20Viral!%20Mau%20order%20mie%20ayam%20lava%20level%203" class="border-2 border-primary text-primary hover:bg-primary/10 font-semibold py-3 px-6 rounded-full transition">Pesan Via WA</a>
         </div>
         <div class="flex items-center gap-4 text-sm text-gray-500 pt-2">
@@ -102,23 +114,23 @@
       </div>
       <div class="relative flex justify-center">
         <div class="bg-gradient-to-tr from-teal-100 to-emerald-100 rounded-3xl p-4 shadow-2xl transform hover:scale-[1.02] transition duration-300">
-          <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?w=600&h=500&fit=crop" alt="Mie Ayam Viral" class="rounded-2xl w-full max-w-md mx-auto shadow-lg object-cover h-80">
+          <img src="https://placehold.co/600x500/0D9488/white?text=Mie+Ayam+Viral+🍜" alt="Mie Ayam Viral" class="rounded-2xl w-full max-w-md mx-auto shadow-lg">
           <div class="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-xl"><i class="fas fa-pepper-hot text-red-500 text-xl"></i></div>
         </div>
       </div>
     </section>
 
-    <!-- Tentang -->
-    <section id="tentang" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-16 animate-fade-up">
+    <!-- Deskripsi Singkat Usaha + Keunggulan -->
+    <section id="tentang" class="bg-white rounded-2xl shadow-md p-6 md:p-8 mb-16 animate-fade-up transition-all">
       <div class="flex flex-col md:flex-row gap-6 items-center">
         <div class="flex-1">
           <h3 class="text-2xl font-bold text-gray-800 flex items-center gap-2"><i class="fas fa-crown text-primary"></i> Kenapa Harus Mie Ayam Viral?</h3>
           <p class="mt-3 text-gray-600 leading-relaxed">Mie ayam viral yang saya buat adalah usaha kuliner kekinian yang menyajikan mie kenyal dengan ayam berbumbu gurih dan topping melimpah. Mengusung konsep modern dan menarik, menu dilengkapi pilihan level pedas serta varian unik seperti keju dan pangsit crispy. Dengan rasa lezat, harga terjangkau, dan tampilan yang menarik, mie ayam ini cocok untuk semua kalangan serta mudah dikenal melalui media sosial.</p>
           <div class="grid grid-cols-2 gap-3 mt-5">
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> <span>Porsi Jumbo Ramah Kantong</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> <span>Rasa Konsisten & Nagih</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> <span>Topping Melimpah</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-primary"></i> <span>Tempat Nyaman buat Nongkrong</span></div>
+            <div class="flex items-center gap-2 text-primary-dark"><i class="fas fa-check-circle text-primary"></i> <span>Porsi Jumbo Ramah Kantong</span></div>
+            <div class="flex items-center gap-2 text-primary-dark"><i class="fas fa-check-circle text-primary"></i> <span>Rasa Konsisten & Nagih</span></div>
+            <div class="flex items-center gap-2 text-primary-dark"><i class="fas fa-check-circle text-primary"></i> <span>Topping Melimpah (Ayam, Pangsit, Bakso)</span></div>
+            <div class="flex items-center gap-2 text-primary-dark"><i class="fas fa-check-circle text-primary"></i> <span>Tempat Nyaman buat Nongkrong</span></div>
           </div>
         </div>
         <div class="flex-shrink-0 bg-teal-50 rounded-2xl p-4 text-center w-full md:w-56">
@@ -129,72 +141,74 @@
       </div>
     </section>
 
-    <!-- MENU ANDALAN dengan GAMBAR SESUAI NAMA MENU -->
+    <!-- Daftar Produk: Menu Andalan (grid) -->
     <div id="menu" class="mb-16">
       <div class="text-center mb-8">
         <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-semibold"><i class="fas fa-fire"></i> BEST SELLER</span>
         <h2 class="text-3xl md:text-4xl font-extrabold mt-2 text-gray-800">🔥 Menu Viral / Andalan</h2>
-        <p class="text-gray-500 max-w-xl mx-auto">Level pedas 1-10, lava, mozzarella, overload sampai sambal iblis!</p>
+        <p class="text-gray-500 max-w-xl mx-auto">Level pedas 1-10, tersedia lava, mozzarella, overload sampai sambal iblis!</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-        
-        <!-- Mie Ayam Lava - mie dengan saus lava pedas merah -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow">
-          <img src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?w=400&h=200&fit=crop" alt="Mie Ayam Lava Pedas" class="menu-img">
-          <div class="p-5"><div class="flex justify-between"><h3 class="text-xl font-bold">Mie Ayam Lava 🌶️</h3><span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">Level 1-10</span></div>
-          <p class="text-gray-500 text-sm">Sensasi pedas nampol dengan sambal lava dan ayam berempah.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 18k</span></div></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- card 1 -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow hover:shadow-xl">
+          <div class="h-36 bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center"><i class="fas fa-pepper-hot text-white text-5xl"></i></div>
+          <div class="p-5">
+            <div class="flex justify-between items-start"><h3 class="text-xl font-bold">Mie Ayam Lava 🌶️</h3><span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded-full">Level 1-10</span></div>
+            <p class="text-gray-500 text-sm mt-1">Pedas nampol sesuai selera, pilihan level super hot!</p>
+            <div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 18k</span><i class="fas fa-cart-plus text-gray-400 hover:text-primary cursor-pointer"></i></div>
+          </div>
         </div>
-        <!-- Mie Ayam Mozzarella - mie dengan keju mozzarella meleleh -->
+        <!-- card 2 -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow">
-          <img src="https://images.pexels.com/photos/4109979/pexels-photo-4109979.jpeg?w=400&h=200&fit=crop" alt="Mie Ayam Mozzarella Keju" class="menu-img">
-          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Mozzarella 🧀</h3><p class="text-gray-500 text-sm">Lelehan keju mozzarella creamy dipadu ayam gurih.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 22k</span></div></div>
+          <div class="h-36 bg-gradient-to-r from-yellow-400 to-amber-500 flex items-center justify-center"><i class="fas fa-cheese text-white text-5xl"></i></div>
+          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Mozzarella 🧀</h3><p class="text-gray-500 text-sm mt-1">Lelehan keju mozzarella creamy berpadu dengan ayam gurih.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 22k</span><i class="fas fa-cart-plus text-gray-400"></i></div></div>
         </div>
-        <!-- Mie Ayam Overload - topping melimpah ayam, pangsit, bakso -->
+        <!-- card 3 -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow">
-          <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?w=400&h=200&fit=crop" alt="Mie Ayam Overload Topping" class="menu-img">
-          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Overload</h3><p class="text-gray-500 text-sm">Topping super melimpah: ayam, pangsit, bakso, siomay.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 25k</span></div></div>
+          <div class="h-36 bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center"><i class="fas fa-layer-group text-white text-5xl"></i></div>
+          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Overload</h3><p class="text-gray-500 text-sm mt-1">Topping super melimpah: ayam, pangsit, bakso, siomay.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 25k</span></div></div>
         </div>
-        <!-- Mie Ayam Sambal Iblis - mie dengan sambal super pedas -->
+        <!-- card 4 -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow">
-          <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?w=400&h=200&fit=crop" alt="Mie Ayam Sambal Iblis" class="menu-img">
-          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Sambal Iblis 👿</h3><p class="text-gray-500 text-sm">Extra pedas level dewa, cocok buat tantangan.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 20k</span></div></div>
+          <div class="h-36 bg-gradient-to-r from-red-700 to-red-800 flex items-center justify-center"><i class="fas fa-dragon text-white text-5xl"></i></div>
+          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Sambal Iblis 👿</h3><p class="text-gray-500 text-sm mt-1">Extra pedas challenge cocok untuk pecinta tantangan!</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 20k</span></div></div>
         </div>
-        <!-- Mie Ayam Crispy - ayam crispy goreng -->
+        <!-- card 5 -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow">
-          <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?w=400&h=200&fit=crop" alt="Mie Ayam Crispy" class="menu-img">
-          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Crispy</h3><p class="text-gray-500 text-sm">Ayam goreng crispy + pangsit renyah, kriuk maksimal!</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 21k</span></div></div>
+          <div class="h-36 bg-gradient-to-r from-amber-600 to-orange-600 flex items-center justify-center"><i class="fas fa-drumstick-bite text-white text-5xl"></i></div>
+          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Crispy</h3><p class="text-gray-500 text-sm mt-1">Ayam goreng crispy + pangsit renyah, kriuk-kriuk!</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 21k</span></div></div>
         </div>
-        <!-- Mie Ayam Original - mie ayam klasik -->
+        <!-- basic mie ayam -->
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-transition hover-glow">
-          <img src="https://images.pexels.com/photos/1191796/pexels-photo-1191796.jpeg?w=400&h=200&fit=crop" alt="Mie Ayam Original" class="menu-img">
-          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Original</h3><p class="text-gray-500 text-sm">Rasa autentik favorit, ayam berbumbu meresap.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 15k</span></div></div>
+          <div class="h-36 bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center"><i class="fas fa-egg text-white text-5xl"></i></div>
+          <div class="p-5"><h3 class="text-xl font-bold">Mie Ayam Original</h3><p class="text-gray-500 text-sm mt-1">Rasa klasik favorit, ayam berbumbu meresap sempurna.</p><div class="flex justify-between items-center mt-3"><span class="text-primary font-black text-xl">Rp 15k</span></div></div>
         </div>
       </div>
     </div>
 
-    <!-- Side Dish & Minuman dengan GAMBAR ASLI -->
+    <!-- Side dish + minuman section -->
     <div class="grid md:grid-cols-2 gap-8 mb-16">
-      <div class="bg-white/90 rounded-2xl p-6 shadow-md">
-        <h3 class="text-2xl font-bold flex items-center gap-2"><i class="fas fa-fries text-primary"></i> 🍢 Menu Tambahan (Side Dish)</h3>
-        <div class="space-y-3 mt-4">
-          <div class="flex items-center gap-4 border-b pb-2"><img src="https://images.pexels.com/photos/5991109/pexels-photo-5991109.jpeg?w=60&h=50&fit=crop" class="small-img shadow"> <span class="flex-1">Pangsit Goreng</span><span class="font-semibold">Rp 8k</span></div>
-          <div class="flex items-center gap-4 border-b pb-2"><img src="https://images.pexels.com/photos/5991109/pexels-photo-5991109.jpeg?w=60&h=50&fit=crop" class="small-img shadow"> <span class="flex-1">Pangsit Rebus</span><span class="font-semibold">Rp 8k</span></div>
-          <div class="flex items-center gap-4 border-b pb-2"><img src="https://images.pexels.com/photos/13715379/pexels-photo-13715379.jpeg?w=60&h=50&fit=crop" class="small-img shadow"> <span class="flex-1">Bakso Goreng (3pc)</span><span class="font-semibold">Rp 10k</span></div>
-          <div class="flex items-center gap-4 border-b pb-2"><img src="https://images.pexels.com/photos/15607100/pexels-photo-15607100.jpeg?w=60&h=50&fit=crop" class="small-img shadow"> <span class="flex-1">Siomay (3pc)</span><span class="font-semibold">Rp 9k</span></div>
-          <div class="flex items-center gap-4 border-b pb-2"><img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?w=60&h=50&fit=crop" class="small-img shadow"> <span class="flex-1">Sosis / Nugget</span><span class="font-semibold">Rp 7k</span></div>
+      <div class="bg-white/70 rounded-2xl p-6 shadow-md">
+        <h3 class="text-2xl font-bold flex items-center gap-2 text-gray-800"><i class="fas fa-fries text-primary"></i> 🍢 Menu Tambahan (Side Dish)</h3>
+        <div class="grid grid-cols-2 gap-3 mt-4">
+          <div class="flex justify-between border-b py-2"><span>Pangsit Goreng</span><span class="font-semibold">Rp 8k</span></div>
+          <div class="flex justify-between border-b py-2"><span>Pangsit Rebus</span><span class="font-semibold">Rp 8k</span></div>
+          <div class="flex justify-between border-b py-2"><span>Bakso Goreng (3pc)</span><span class="font-semibold">Rp 10k</span></div>
+          <div class="flex justify-between border-b py-2"><span>Siomay (3pc)</span><span class="font-semibold">Rp 9k</span></div>
+          <div class="flex justify-between border-b py-2"><span>Sosis / Nugget</span><span class="font-semibold">Rp 7k</span></div>
         </div>
       </div>
-      <div class="bg-white/90 rounded-2xl p-6 shadow-md">
-        <h3 class="text-2xl font-bold flex items-center gap-2"><i class="fas fa-cup-straw text-primary"></i> 🧊 Minuman & Pelengkap</h3>
-        <div class="grid grid-cols-2 gap-3 mt-4">
-          <div class="flex items-center gap-2"><img src="https://images.pexels.com/photos/987590/pexels-photo-987590.jpeg?w=50&h=50&fit=crop" class="drink-img shadow"> <span class="flex-1">Es Teh</span><span class="text-primary font-semibold">Rp 5k</span></div>
-          <div class="flex items-center gap-2"><img src="https://images.pexels.com/photos/8471359/pexels-photo-8471359.jpeg?w=50&h=50&fit=crop" class="drink-img shadow"> <span class="flex-1">Es Jeruk</span><span class="text-primary font-semibold">Rp 7k</span></div>
-          <div class="flex items-center gap-2"><img src="https://images.pexels.com/photos/3007760/pexels-photo-3007760.jpeg?w=50&h=50&fit=crop" class="drink-img shadow"> <span class="flex-1">Es Milo</span><span class="text-primary font-semibold">Rp 8k</span></div>
-          <div class="flex items-center gap-2"><img src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?w=50&h=50&fit=crop" class="drink-img shadow"> <span class="flex-1">Thai Tea</span><span class="text-primary font-semibold">Rp 10k</span></div>
-          <div class="flex items-center gap-2"><img src="https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?w=50&h=50&fit=crop" class="drink-img shadow"> <span class="flex-1">Air Mineral</span><span class="text-primary font-semibold">Rp 4k</span></div>
-          <div class="flex items-center gap-2"><img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?w=50&h=50&fit=crop" class="drink-img shadow"> <span class="flex-1">Nasi + Ayam</span><span class="text-primary font-semibold">Rp 16k</span></div>
+      <div class="bg-white/70 rounded-2xl p-6 shadow-md">
+        <h3 class="text-2xl font-bold flex items-center gap-2 text-gray-800"><i class="fas fa-cup-straw text-primary"></i> 🧊 Minuman & Pelengkap</h3>
+        <div class="grid grid-cols-2 gap-2 mt-4">
+          <div><p class="font-medium">Es Teh Manis/Tawar</p><p class="text-primary">Rp 5k</p></div>
+          <div><p class="font-medium">Es Jeruk</p><p class="text-primary">Rp 7k</p></div>
+          <div><p class="font-medium">Es Milo / Coklat</p><p class="text-primary">Rp 8k</p></div>
+          <div><p class="font-medium">Thai Tea</p><p class="text-primary">Rp 10k</p></div>
+          <div><p class="font-medium">Air Mineral</p><p class="text-primary">Rp 4k</p></div>
+          <div><p class="font-medium">Nasi + Ayam</p><p class="text-primary">Rp 16k</p></div>
+          <div><p class="font-medium">Mie Polos (tanpa topping)</p><p class="text-primary">Rp 10k</p></div>
         </div>
-        <div class="mt-3 text-sm bg-gray-100 p-2 rounded-full text-center">🍜 Mie Polos (tanpa topping) Rp 10k</div>
       </div>
     </div>
 
@@ -212,7 +226,7 @@
       </div>
     </section>
 
-    <!-- Info Pemilik & Lokasi -->
+    <!-- Info Pemilik & Lokasi + Jam Operasional -->
     <div id="lokasi" class="grid md:grid-cols-2 gap-8 bg-white rounded-2xl shadow-sm p-6 mb-16">
       <div>
         <h3 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-user-check text-primary"></i> Pemilik & Kontak</h3>
@@ -232,13 +246,13 @@
       <div class="bg-gray-50 rounded-xl p-5">
         <h3 class="font-bold text-lg flex items-center gap-2"><i class="fas fa-store text-primary"></i> Lokasi Strategis & Nyaman</h3>
         <div class="mt-3 h-40 bg-gradient-to-br from-teal-200 to-emerald-200 rounded-xl flex items-center justify-center relative overflow-hidden">
-          <div class="absolute inset-0 flex items-center justify-center flex-col text-teal-800"><i class="fas fa-map-pin text-4xl"></i><p class="font-bold mt-1">Jalan Haji Saba</p><p class="text-sm">Mie Ayam Viral</p></div>
+          <div class="absolute inset-0 flex items-center justify-center flex-col text-teal-800"><i class="fas fa-map-pin text-4xl"></i><p class="font-bold mt-1">Jalan Haji Saba</p><p class="text-sm">Mie Ayam Viral - Ditemukan dengan mudah</p></div>
         </div>
-        <p class="text-sm text-gray-500 mt-3">📍 Tempat nyaman, cocok buat nongkrong keluarga hingga anak muda.</p>
+        <p class="text-sm text-gray-500 mt-3">📍 Tempat nyaman, cocok buat nongkrong keluarga hingga anak muda. Tersedia area lesehan & meja modern.</p>
       </div>
     </div>
 
-    <!-- Testimoni -->
+    <!-- Testimoni singkat dengan animasi -->
     <div class="text-center my-10">
       <p class="text-lg italic font-medium text-gray-700">💬 "Mienya enak banget, porsinya banyak, sambelnya juara!" — <span class="font-bold">@dianfoodie</span></p>
       <p class="text-md italic text-gray-500 mt-2">⭐ 4.9/5 dari 500+ ulasan di Google & media sosial</p>
@@ -247,11 +261,12 @@
     <!-- Footer -->
     <footer class="border-t border-teal-100 pt-8 pb-6 text-center text-gray-500 text-sm">
       <div class="flex justify-center gap-6 text-primary text-xl mb-3">
-        <i class="fab fa-instagram hover:scale-110 transition cursor-pointer"></i>
-        <i class="fab fa-tiktok hover:scale-110 transition cursor-pointer"></i>
-        <i class="fab fa-facebook hover:scale-110 transition cursor-pointer"></i>
+        <i class="fab fa-instagram hover:scale-110 transition"></i>
+        <i class="fab fa-tiktok hover:scale-110 transition"></i>
+        <i class="fab fa-facebook hover:scale-110 transition"></i>
       </div>
       <p>&copy; 2025 Mie Ayam Viral - Milik Rafka. Rasa Bahagia di Setiap Suapan 🍜</p>
+      <p class="text-xs mt-1">*Harga dapat berubah sewaktu-waktu. Pesan via WhatsApp untuk promo spesial!</p>
     </footer>
   </main>
 </body>
